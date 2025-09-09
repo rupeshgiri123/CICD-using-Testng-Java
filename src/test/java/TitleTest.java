@@ -16,9 +16,23 @@ public class TitleTest {
     }
     @Test
     public void testGoogleHomePage() {
+        // Navigate to Google's homepage
         driver.get("https://www.google.com");
-        String pageTitle =  driver.getTitle();
+
+        // Get the title of the page
+        String pageTitle = driver.getTitle();
+        System.out.println("Page title is: " + pageTitle);
+
+        // Assert that the title is exactly "Google"
         Assert.assertEquals(pageTitle, "Google", "Title does not match!");
+    }
+
+    @AfterMethod
+    public void teardown() {
+        // Quit the browser after the test
+        if (driver != null) {
+            driver.quit();
+        }
     }
 
 }
