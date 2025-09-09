@@ -3,15 +3,15 @@ name: Selenium Tests
 on:
   push:
     branches:
-      - master 
+      - master  # Use master as your default branch
   pull_request:
     branches:
-      - master 
+      - master  # For pull requests to master branch
   workflow_dispatch:  # Allows for manual triggering of the workflow
 
 jobs:
   selenium_tests:
-    runs-on: ubuntu-latest  # Use Ubuntu for the CI job
+    runs-on: ubuntu-latest  # Use Ubuntu runner
 
     steps:
       # Step 1: Checkout code
@@ -39,9 +39,9 @@ jobs:
       - name: Run Tests
         run: mvn test
 
-      # Step 6: Upload TestNG results (using updated v3 of upload-artifact)
+      # Step 6: Upload TestNG results using GitHub's official artifact action
       - name: Upload TestNG Results
-        uses: actions/upload-artifact@v3
+        uses: @github/upload-artifact@v1  # Using the GitHub-supported artifact action
         with:
           name: testng-results
           path: target/surefire-reports
