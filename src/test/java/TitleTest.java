@@ -21,7 +21,7 @@ public class TitleTest {
 
         // Get the title of the page
         String pageTitle = driver.getTitle();
-        System.out.println("Page title is: " + pageTitle);
+       
 
         // Assert that the title is exactly "Google"
         Assert.assertEquals(pageTitle, "Google", "Title does not match!");
