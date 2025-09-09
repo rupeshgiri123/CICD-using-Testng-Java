@@ -18,7 +18,7 @@ public class TitleTest {
     public void testGoogleHomePage() {
         driver.get("https://www.google.com");
         String pageTitle =  driver.getTitle();
-        System.out.println("Page title is: " + driver.getTitle());
+        System.out.println("Page title is:   " + driver.getTitle());
         Assert.assertEquals(pageTitle, "Google", "Title does not match!");
     }
 
